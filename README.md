@@ -1,2 +1,2 @@
 # RaspCaldaia
-Rasberry termostato caldaia
+Raspberry termostato caldaia
