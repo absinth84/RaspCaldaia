@@ -120,7 +120,7 @@ options = {
 container = document.getElementById("chart")
 graph = Flotr.draw(
 	container,  // Container element
-	 [{data : data, label : "Temp"}, {data: datarelay, lines : { fill : true }, label : "Relè"}, {data: dataest, label: "Temp Est"}],
+	 [{data : data, label : "Temp"}, {data: datarelay, lines : { fill : true }, label : "Relè"}, {data: dataest, lines : { fill : true }, label: "Temp Est"}],
 	options     // Configuration options
 );
 
