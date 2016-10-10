@@ -2,8 +2,11 @@
 <div id="header-wrapper">
 <div id="header">
 <div id="logo">
-<h1><a href="#">Raspberry Py</a></h1>
+<h1><a>Raspberry Py</a></h1>
 <p>Monitoraggio temperatura</p>
+</div>
+<div id="logo-img">
+    <img hight="150" src="../images/raspberry_header_small.jpg">
 </div>
 <div id="menu">
 <ul>
@@ -14,4 +17,3 @@
 </div>
 </div>
 </div>
-<div id="banner"><img width="800" alt="" src="../images/raspberry_header.jpg"></div>

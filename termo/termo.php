@@ -38,9 +38,6 @@
 	$temp_esterna = $redis->lRange('temp_esterna', $start, $end);
 	$termo        = $redis->lRange('camera', $start, $end);
 	$rele         = $redis->lRange('rele', $start, $end);
-	//$temp_1       = $redis->lRange('temp_1', $start, $end);
-	//$temp_2       = $redis->lRange('temp_2', $start, $end);
-	//$temp_3       = $redis->lRange('temp_3', $start, $end);
 	$min	      = $redis->lRange('min', $start, $end);
 	$max	      = $redis->lRange('max', $start, $end);
 
@@ -49,25 +46,6 @@
 		echo "data.push([" . $timestamp[$x] .", ". $termo[$x] . "]);\n";
 		echo "datarelay.push([" . $timestamp[$x] .", ". ($rele[$x] * 10) . "]);\n";
 		echo "dataest.push([" . $timestamp[$x] .", ". $temp_esterna[$x] . "]);\n";
-		//echo "d1.push([" . $timestamp[$x] . "," . ($termo[$x]+10) . "]);\t";
-		//echo "d2.push([" . $timestamp[$x] . "," . (($min[$x]+$max[$x])/2) . "]);\n";
-		//echo "d3.push([" . $timestamp[$x] . "," . $temp_1[$x] . "]);\n";
-		//echo "d4.push([" . $timestamp[$x] . "," . $temp_2[$x] . "]);\n";
-		//echo "d5.push([" . $timestamp[$x] . "," . $temp_3[$x] . "]);\n";
-		//echo "d6.push([" . $timestamp[$x] . "," . (($min[$x]+$max[$x])/2) . "]);\n";
-
-		/*	if (date("H", $timestamp[$x]) > 6 &&  (date("H", $timestamp[$x]) <=23 )) {
-		echo "d6.push([" . $timestamp[$x] . ",21.25]);\n";
-	} else {
-	echo "d6.push([" . $timestamp[$x] . ",19.75]);\n";
-}
-*/
-//	if (date("H", $timestamp[$x]) > 6 &&  (date("H", $timestamp[$x]) <=23 )) {
-//echo "d3.push([" . $timestamp[$x] . "," . ($rele[$x]+18) .  "]);\n";
-//	} else {
-//echo "d4.push([" . $timestamp[$x] . "," . ($rele[$x]+18) ."]);\n";
-//}
-
 
 }
 
@@ -130,6 +108,8 @@ graph = Flotr.draw(
 
 
 </div>
+<br></br>
 
+<h2>Temp: <?php echo $termo[(abs($start))-1] ?>°C</h2>
 
 </body>
