@@ -1,11 +1,9 @@
 <html>
-<head>
+
 	<link href='../css/style.css' rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" type="text/css" href="../Flotr2/css/Flotr2.css">
+
 	<script type='text/javascript' src='../Flotr2/flotr2.min.js'></script>
 	<script type='text/javascript' src='../Flotr2/flotr2_box_plot.js'></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-</head>
 <body>
 	<?php include("../include/header.php")?>
 	<div id=grafico>
@@ -113,3 +111,4 @@ graph = Flotr.draw(
 <h2>Temp: <?php echo $termo[(abs($start))-1] ?>°C</h2>
 
 </body>
+</html>
