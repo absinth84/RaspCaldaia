@@ -2,7 +2,7 @@
 
 
 <script type="text/javascript" src="../lib/Chart.bundle.js"></script>
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart" width="200" height="200"></canvas>
 
 <script language=javascript>
 
@@ -10,7 +10,7 @@ var  datarelay = [], dataest = [], options;
 
 
 <?php
-$start=-5;
+$start=-300;
 $end=-1;
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
@@ -40,13 +40,14 @@ for ($i=0;$i<=(abs($start)-1);$i++) {
 	//	$data .= '{x: ' . $temp_esterna[$i] . ', y: ' . $termo[$i] . '},';
 //	array_push[0]($data, "x: " . $timestamp[$i] . ", y: " . $termo[$i]);
 
-	$data[$i][0] = "x: " . $temp_esterna[$i];
-	$data[$i][1] = "y: " . $termo[$i];
+	$data[$i][x] =  $timestamp[$i];
+	$data[$i][y] =  $termo[$i];
 }
 
 ?>
-//alert(<?php echo var_dump($data); ?>);
-alert(<?php echo json_encode(array_values($data)); ?>);
+
+
+//alert(<?php echo json_encode(array_values($data)); ?>);
 
 
 $json = <?php echo json_encode($data); ?>;
@@ -60,7 +61,7 @@ var myChart = new Chart(ctx, {
 	data: {
 		datasets: [{
 			label: 'Scatter Dataset',
-			data: <?php echo json_encode(array_values($data)); ?>
+			data: <?php echo json_encode($data); ?>
 		}]
 	},
 	options: {
@@ -71,7 +72,12 @@ var myChart = new Chart(ctx, {
                 },
 				scales: {
 					xAxes: [{
-						type: "linear",
+						type: 'time',
+						time: {
+							format: 'X',
+					//		 round: 'day',
+						},
+
 						display: true,
 						scaleLabel: {
 							display: true,
@@ -79,10 +85,11 @@ var myChart = new Chart(ctx, {
 						}
 					}],
 					yAxes: [{
+						type: 'linear',
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'value'
+							labelString: 'Temp'
 						}
 					}]
 				}
